@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Demande index{% endblock %}
+
+{% block body %}
+    <br><h1 style="margin-left:14cm; font-weight:bold;">Demandes</h1>
+   <br> <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Examen du patient</th>
+                <th>Date de création</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for demande in demandes %}
+            <tr>
+                <td>{{ demande.id }}</td>
+                <td>{{ demande.titre }}</td>
+                <td>{{ demande.Contenu }}</td>
+                <td>{{ demande.examen }}</td>
+                <td>{{ demande.dateCreation ? demande.dateCreation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                <a href="{{ path('app_demande_show', {'id': demande.id}) }}">Consulter la demande</a>
+                <br><a href="{{ path('app_demande_edit', {'id': demande.id}) }}">Modifier la demande</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune demande trouvée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a style="margin-left:14cm; font-size:20px;" href="{{ path('app_demande_new') }}">Ajouter une demande</a>{% endblock %}

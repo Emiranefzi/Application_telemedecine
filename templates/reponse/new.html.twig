@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Reponse{% endblock %}
+
+{% block body %}
+    <br><h1 style="margin-left:12cm; font-weight:bold;">Ajout d'une réponse</h1><br>
+
+    {{ include('reponse/_form.html.twig') }}
+
+    <br><a style="margin-left:15.9cm; font-size:18px;"href="{{ path('app_reponse_index') }}">Retour à la liste</a>
+
+{% endblock %}

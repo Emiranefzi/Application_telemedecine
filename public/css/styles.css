@@ -1,0 +1,21 @@
+
+h1{
+    color:rgb(104, 177, 158);
+}
+a{
+    color: rgb(8, 77, 80);
+}
+
+a:hover{
+    color: rgb(7, 21, 22);
+}
+
+th{
+    font-weight: bold;
+}
+
+img{
+height: 10cm;
+width: 13cm;
+margin-left: 4cm;
+}

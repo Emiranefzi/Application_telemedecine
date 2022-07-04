@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Generaliste index{% endblock %}
+
+{% block body %}
+    <br><h1 style="margin-left:10cm"> Médecins généralistes</h1>
+
+    <br><table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Roles</th>
+                <th>Mot de passe</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for generaliste in generalistes %}
+            <tr>
+                <td>{{ generaliste.id }}</td>
+                <td>{{ generaliste.email }}</td>
+                <td>{{ generaliste.roles ? generaliste.roles|json_encode : '' }}</td>
+                <td>{{ generaliste.password }}</td>
+                <td>{{ generaliste.nom }}</td>
+                <td>{{ generaliste.prenom }}</td>
+                <td>
+                    <a href="{{ path('app_generaliste_show', {'id': generaliste.id}) }}">Voir</a>
+                    <br><a href="{{ path('app_generaliste_edit', {'id': generaliste.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">Pas de médecins généralistes trouvés</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_generaliste_new') }}" style="margin-left:14cm">Créer un nouveau utilisateur </a>
+{% endblock %}

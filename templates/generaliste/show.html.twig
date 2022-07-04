@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Generalistes{% endblock %}
+
+{% block body %}
+    <br><h1 style="margin-left:11cm"> Médecin généraliste</h1><br>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ generaliste.id }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ generaliste.email }}</td>
+            </tr>
+
+            <tr>
+                <th>PMot de passe</th>
+                <td>{{ generaliste.password }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ generaliste.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ generaliste.prenom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br><a href="{{ path('app_generaliste_index') }}" style="margin-left:15cm">retour à la liste</a>
+
+    &nbsp; &nbsp;<a href="{{ path('app_generaliste_edit', {'id': generaliste.id}) }}" >Modifier</a>
+
+    {{ include('generaliste/_delete_form.html.twig') }}
+{% endblock %}

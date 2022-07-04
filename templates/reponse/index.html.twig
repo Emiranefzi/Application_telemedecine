@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reponse index{% endblock %}
+
+{% block body %}
+   <br> <h1 style="margin-left:14cm; font-weight:bold;">Réponses</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Contenu</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reponse in reponses %}
+            <tr>
+                <td>{{ reponse.id }}</td>
+                <td>{{ reponse.titre }}</td>
+                <td>{{ reponse.contenu }}</td>
+                <td>
+                    <a href="{{ path('app_reponse_show', {'id': reponse.id}) }}">Consulter la réponse</a>
+                    <br><a href="{{ path('app_reponse_edit', {'id': reponse.id}) }}">Modifier la réponse</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Pas de réponses trouvées</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a style="margin-left:14cm; font-size:20px;" href="{{ path('app_reponse_new') }}">Ajouter une réponse</a>{% endblock %}

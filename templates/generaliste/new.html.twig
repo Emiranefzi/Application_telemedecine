@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Generaliste{% endblock %}
+
+{% block body %}
+    <br><h1 style="margin-left:10cm">Nouveau médecin généraliste</h1><br>
+
+    {{ include('generaliste/_form.html.twig') }}
+
+   <br> <a href="{{ path('app_generaliste_index') }}" style="margin-left:16cm">Retour à la liste</a>
+{% endblock %}
